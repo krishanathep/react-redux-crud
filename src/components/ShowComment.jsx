@@ -11,7 +11,7 @@ export class ShowComment extends Component {
         {this.props.comments.map((comment) => (
           <div key={comment.id}>
             {comment.editing ? (
-              <EditComponent commnet={comment} key={comment.id} />
+              <EditComponent key={comment.id} comment={comment} />
             ) : (
               <Comments key={comment.id} comment={comment} />
             )}

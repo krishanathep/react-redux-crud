@@ -13,6 +13,12 @@ export class EditComponent extends Component {
       newmessage,
       newname,
     };
+    
+    this.props.dispatch({
+      type: 'UPDATE_COMMENT',
+      id: this.props.comment.id,
+      data: data,
+    })
   };
 
   render() {
@@ -20,7 +26,7 @@ export class EditComponent extends Component {
       <div className="Edit Componet">
         <form onSubmit={this.handleSubmit}>
           Title : <br />
-          <input type="text" ref={(input) => (this.getTitle = input)} defaultValue={this.props.comment.id} />
+          <input type="text" ref={(input) => (this.getTitle = input)} defaultValue={this.props.comment.title} />
           <br />
           Comment : <br />
           <textarea
@@ -29,10 +35,11 @@ export class EditComponent extends Component {
             cols="30"
             rows="5"
             ref={(input) => (this.getMessage = input)}
+            defaultValue={this.props.comment.message}
           ></textarea>
           <br />
           Name: <br />
-          <input type="text" ref={(input) => (this.getName = input)} />
+          <input type="text" ref={(input) => (this.getName = input)} defaultValue={this.props.comment.name} />
           <br />
           <br />
           <input type="submit" value="Update" />
