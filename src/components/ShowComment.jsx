@@ -6,8 +6,7 @@ import EditComponent from "./EditComponent";
 export class ShowComment extends Component {
   render() {
     return (
-      <div className="Show Comment">
-        <h1>Show All Comment</h1>
+      <div className="Show Comment container">
         {this.props.comments.map((comment) => (
           <div key={comment.id}>
             {comment.editing ? (
